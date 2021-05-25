@@ -8,35 +8,36 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: ccRemover_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/ccRemover_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/ccRemover/ccRemover_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/ccRemover_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/ccRemover/ccRemover_{{ version }}.tar.gz
   sha256: 26158d005a807567782e92c2104deeacec44e2410914d3f8c2e77928fa06edda
 
 build:
-  noarch: generic
+  merge_build_host: True  # [win]
   number: 1002
-
+  noarch: generic
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
+    - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
+  host:
     - r-base
-
   run:
     - r-base
 
 test:
   commands:
-    - $R -e "library('ccRemover')"  # [not win]
+    - $R -e "library('ccRemover')"           # [not win]
     - "\"%R%\" -e \"library('ccRemover')\""  # [win]
 
 about:
   home: https://CRAN.R-project.org/package=ccRemover
-  license: GPL-3
+  license: GPL-3.0-only
   summary: Implements a method for identifying and removing the cell-cycle effect from scRNA-Seq
     data. The description of the  method is in Barron M. and Li J. (2016) <doi
   license_family: GPL3
@@ -45,7 +46,3 @@ about:
 extra:
   recipe-maintainers:
     - conda-forge/r
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
