@@ -1,11 +1,11 @@
-About r-ccremover
-=================
+About r-ccremover-feedstock
+===========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-ccremover-feedstock/blob/main/LICENSE.txt)
 
 Home: https://CRAN.R-project.org/package=ccRemover
 
 Package license: GPL-3.0-only
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-ccremover-feedstock/blob/main/LICENSE.txt)
 
 Summary: Implements a method for identifying and removing the cell-cycle effect from scRNA-Seq data. The description of the  method is in Barron M. and Li J. (2016) <doi
 
