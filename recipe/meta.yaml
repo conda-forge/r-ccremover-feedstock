@@ -1,7 +1,6 @@
 {% set version = '1.0.4' %}
 
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-ccremover
@@ -14,8 +13,7 @@ source:
   sha256: 26158d005a807567782e92c2104deeacec44e2410914d3f8c2e77928fa06edda
 
 build:
-  merge_build_host: True  # [win]
-  number: 1004
+  number: 1005
   noarch: generic
   rpaths:
     - lib/R/lib/
