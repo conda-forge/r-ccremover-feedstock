@@ -1,4 +1,4 @@
-{% set version = '1.0.4' %}
+{% set version = "1.0.5" %}
 
 {% set posix = 'm2-' if win else '' %}
 
@@ -10,10 +10,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/ccRemover_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/ccRemover/ccRemover_{{ version }}.tar.gz
-  sha256: 26158d005a807567782e92c2104deeacec44e2410914d3f8c2e77928fa06edda
+  sha256: cf0e01843aa8e8adef462abffbd84080fe78182ea0b3a9448c04a4f290a70d9f
 
 build:
-  number: 1006
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
@@ -36,8 +36,7 @@ test:
 about:
   home: https://CRAN.R-project.org/package=ccRemover
   license: GPL-3.0-only
-  summary: Implements a method for identifying and removing the cell-cycle effect from scRNA-Seq
-    data. The description of the  method is in Barron M. and Li J. (2016) <doi
+  summary: Implements a method for identifying and removing the cell-cycle effect from scRNA-Seq data. The description of the  method is in Barron M. and Li J. (2016) <doi
   license_family: GPL3
   license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
 
